@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/ST4RFKR"
   },
-  "version": "1.0.13",
+  "version": "1.0.1",
   "type": "module",
   "exports": {
     "./components": {

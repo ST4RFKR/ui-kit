@@ -1,15 +1,15 @@
 // Tabs.stories.tsx
-import React from 'react';
+import React from "react";
 
-import { Meta, StoryObj } from '@storybook/nextjs-vite';
+import { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Tabs } from './Tabs';
+import { Tabs } from "./Tabs";
 
 const meta: Meta<typeof Tabs> = {
-  title: 'Shared/Tabs',
+  title: "UI/Tabs",
   component: Tabs,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
 };
 
@@ -17,34 +17,39 @@ export default meta;
 type Story = StoryObj<typeof Tabs>;
 
 const tabsData = [
-  { value: 'movies', label: 'Movies', content: <div>Содержимое Movies</div> },
-  { value: 'books', label: 'Books', content: <div>Содержимое Books</div> },
-  { value: 'music', label: 'Music', content: <div>Содержимое Music</div>, disabled: true },
+  { value: "movies", label: "Movies", content: <div>Содержимое Movies</div> },
+  { value: "books", label: "Books", content: <div>Содержимое Books</div> },
+  {
+    value: "music",
+    label: "Music",
+    content: <div>Содержимое Music</div>,
+    disabled: true,
+  },
 ];
 
 const tabsDataNotDisabled = [
-  { value: 'movies', label: 'Movies', content: <div>Содержимое Movies</div> },
-  { value: 'books', label: 'Books', content: <div>Содержимое Books</div> },
-  { value: 'music', label: 'Music', content: <div>Содержимое Music</div> },
+  { value: "movies", label: "Movies", content: <div>Содержимое Movies</div> },
+  { value: "books", label: "Books", content: <div>Содержимое Books</div> },
+  { value: "music", label: "Music", content: <div>Содержимое Music</div> },
 ];
 
 export const Default: Story = {
   args: {
-    defaultValue: 'movies',
+    defaultValue: "movies",
     tabs: tabsData,
   },
 };
 
 export const WithDisabledTab: Story = {
   args: {
-    defaultValue: 'books',
+    defaultValue: "books",
     tabs: tabsData,
   },
 };
 
 export const NotDisabledTab: Story = {
   args: {
-    defaultValue: 'books',
+    defaultValue: "books",
     tabs: tabsDataNotDisabled,
   },
 };

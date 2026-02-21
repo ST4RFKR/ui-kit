@@ -1,12 +1,11 @@
-'use client';
-import { ButtonHTMLAttributes, ReactNode } from 'react';
-import clsx from 'clsx';
+import { ButtonHTMLAttributes, ReactNode } from "react";
+import clsx from "clsx";
 
-import s from './Button.module.scss';
+import s from "./Button.module.scss";
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
   children: ReactNode;
-  variant?: 'primary' | 'secondary' | 'outline' | 'text';
+  variant?: "primary" | "secondary" | "outline" | "text";
   className?: string;
   fullWidth?: boolean;
 };
@@ -14,8 +13,8 @@ type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
 export const Button = ({
   children,
   disabled = false,
-  variant = 'primary',
-  type = 'button',
+  variant = "primary",
+  type = "button",
   className,
   onClick,
   fullWidth = false,
@@ -27,7 +26,12 @@ export const Button = ({
         disabled={disabled}
         type={type}
         onClick={onClick}
-        className={clsx(s.btn, s[`btn--${variant}`], fullWidth && s['btn--full_width'], className)}
+        className={clsx(
+          s.btn,
+          s[`btn--${variant}`],
+          fullWidth && s["btn--full_width"],
+          className,
+        )}
         {...props}
       >
         {children}

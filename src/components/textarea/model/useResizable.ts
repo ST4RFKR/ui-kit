@@ -1,14 +1,13 @@
-// hooks/useResizable.ts
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
-type ResizeDirection = 'both' | 'horizontal' | 'vertical' | 'none';
+type ResizeDirection = "both" | "horizontal" | "vertical" | "none";
 
 export type UseResizableOptions = {
   direction?: ResizeDirection;
 };
 
 export const useResizable = (options: UseResizableOptions = {}) => {
-  const { direction = 'both' } = options;
+  const { direction = "both" } = options;
 
   const targetRef = useRef<HTMLDivElement>(null);
   const handleRef = useRef<HTMLDivElement>(null);
@@ -37,18 +36,18 @@ export const useResizable = (options: UseResizableOptions = {}) => {
     const handleMouseMove = (e: MouseEvent) => {
       if (!isResizing || !target) return;
 
-      if (direction === 'none') return;
+      if (direction === "none") return;
 
       const dx = e.clientX - startX;
       const dy = e.clientY - startY;
 
-      if (direction === 'horizontal' || direction === 'both') {
+      if (direction === "horizontal" || direction === "both") {
         const newWidth = startWidth + dx;
 
         target.style.width = `${newWidth}px`;
       }
 
-      if (direction === 'vertical' || direction === 'both') {
+      if (direction === "vertical" || direction === "both") {
         const newHeight = startHeight + dy;
 
         target.style.height = `${newHeight}px`;
@@ -59,14 +58,14 @@ export const useResizable = (options: UseResizableOptions = {}) => {
       isResizing = false;
     };
 
-    handle.addEventListener('mousedown', handleMouseDown);
-    document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseup', handleMouseUp);
+    handle.addEventListener("mousedown", handleMouseDown);
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseup", handleMouseUp);
 
     return () => {
-      handle.removeEventListener('mousedown', handleMouseDown);
-      document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseup', handleMouseUp);
+      handle.removeEventListener("mousedown", handleMouseDown);
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
     };
   }, []);
 

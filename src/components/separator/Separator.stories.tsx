@@ -1,14 +1,14 @@
-import { Meta, StoryObj } from '@storybook/nextjs-vite';
+import { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Separator } from './Separator';
+import { Separator } from "./Separator";
 
 const meta = {
-  title: 'ui/separator/Separator',
+  title: "UI/Separator",
   component: Separator,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {},
   args: {},
 } satisfies Meta<typeof Separator>;
@@ -18,10 +18,10 @@ type Story = StoryObj<typeof meta>;
 
 export const VerticalSeparator: Story = {
   args: {
-    orientation: 'vertical',
+    orientation: "vertical",
   },
   render: (args) => (
-    <div style={{ height: '300px' }}>
+    <div style={{ height: "300px" }}>
       <Separator {...args} />
     </div>
   ),
@@ -29,10 +29,10 @@ export const VerticalSeparator: Story = {
 
 export const HorizontalSeparator: Story = {
   args: {
-    orientation: 'horizontal',
+    orientation: "horizontal",
   },
   render: (args) => (
-    <div style={{ width: '300px' }}>
+    <div style={{ width: "300px" }}>
       <Separator {...args} />
     </div>
   ),

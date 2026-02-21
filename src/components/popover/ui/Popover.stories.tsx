@@ -1,17 +1,16 @@
-import { useState } from 'react';
-import { boolean } from 'zod';
+import { useState } from "react";
 
-import { Popover } from '@/shared/ui/popover';
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import { Popover } from "./Popover";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 const meta = {
-  title: 'ui/popover/Popover',
+  title: "UI/Popover",
   component: Popover,
   parameters: {
-    layout: 'centered',
-    backgrounds: { default: 'black' },
+    layout: "centered",
+    backgrounds: { default: "black" },
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   args: {
     open: false,
     isOwner: false,
@@ -20,24 +19,24 @@ const meta = {
   },
   argTypes: {
     open: {
-      control: boolean,
-      description: 'popver state',
+      control: "boolean",
+      description: "popver state",
     },
-    onOpenChange: { action: 'popover state has been changed`' },
+    onOpenChange: { action: "popover state has been changed`" },
     editPost: {
-      action: 'Calling up textarea for editing post description',
+      action: "Calling up textarea for editing post description",
     },
     removePost: {
-      action: 'post has been removed',
+      action: "post has been removed",
     },
     follow: {
-      action: 'user has been followed',
+      action: "user has been followed",
     },
     unfollow: {
-      action: 'user has been unfollowed',
+      action: "user has been unfollowed",
     },
     copyLink: {
-      action: 'link has been copied',
+      action: "link has been copied",
     },
   },
 } satisfies Meta<typeof Popover>;

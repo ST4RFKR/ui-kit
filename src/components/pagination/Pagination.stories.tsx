@@ -1,16 +1,16 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Pagination } from './Pagination';
+import { Pagination } from "./Pagination";
 
 const meta: Meta<typeof Pagination> = {
-  title: 'Shared/Pagination',
+  title: "UI/Pagination",
   component: Pagination,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     totalPages: {
-      control: { type: 'number', min: 1 },
+      control: { type: "number", min: 1 },
     },
   },
 };
@@ -21,7 +21,7 @@ type Story = StoryObj<typeof Pagination>;
 // 🔹 Обёртка с состоянием
 const PaginationWithState = ({ totalPages = 10 }: { totalPages?: number }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize, setPageSize] = useState('100');
+  const [pageSize, setPageSize] = useState("100");
 
   return (
     <Pagination

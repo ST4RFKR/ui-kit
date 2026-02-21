@@ -1,14 +1,14 @@
-import { Meta, StoryObj } from '@storybook/nextjs-vite';
+import { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Checkbox } from './Checkbox';
+import { Checkbox } from "./Checkbox";
 
 const meta = {
-  title: 'ui/checkbox/Checkbox',
+  title: "UI/Checkbox",
   component: Checkbox,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {},
   args: {},
 } satisfies Meta<typeof Checkbox>;
@@ -28,7 +28,7 @@ export const CheckboxChecked: Story = {
 
 export const CheckboxWithLabel: Story = {
   args: {
-    label: 'Accept terms and conditions.',
+    label: "Accept terms and conditions.",
   },
 };
 
@@ -40,7 +40,7 @@ export const CheckboxDisabled: Story = {
 
 export const CheckboxWithLabelDisabled: Story = {
   args: {
-    label: 'Accept terms and conditions.',
+    label: "Accept terms and conditions.",
     disabled: true,
   },
 };

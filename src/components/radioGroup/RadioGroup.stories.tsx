@@ -1,16 +1,16 @@
-import { RadioButtonGroup } from '@/shared/ui/radioGroup/RadioGroup';
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import { RadioButtonGroup } from "./RadioGroup";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 const meta: Meta<typeof RadioButtonGroup> = {
-  title: 'Shared/RadioButtonGroup',
+  title: "UI/RadioButtonGroup",
   component: RadioButtonGroup,
   args: {
-    ariaLabel: 'Options',
+    ariaLabel: "Options",
     required: true,
     items: [
-      { value: 'a', label: 'Option A' },
-      { value: 'b', label: 'Option B' },
-      { value: 'c', label: 'Option C', disabled: true },
+      { value: "a", label: "Option A" },
+      { value: "b", label: "Option B" },
+      { value: "c", label: "Option C", disabled: true },
     ],
   },
 };
@@ -24,8 +24,8 @@ export const Default: StoryObj<typeof RadioButtonGroup> = {
 export const WithDisabled: StoryObj<typeof RadioButtonGroup> = {
   args: {
     items: [
-      { value: '1', label: 'Enabled' },
-      { value: '2', label: 'Disabled', disabled: true },
+      { value: "1", label: "Enabled" },
+      { value: "2", label: "Disabled", disabled: true },
     ],
   },
 };

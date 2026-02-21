@@ -3,21 +3,19 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/ST4RFKR"
   },
-  "version": "1.0.2",
+  "version": "1.0.3",
   "homepage": "https://ST4RFKR.github.io/ui-kit",
   "type": "module",
   "exports": {
     "./components": {
+      "types": "./dist/types/components/index.d.ts",
       "import": "./dist/components/index.esm.js",
       "require": "./dist/components/index.js"
     },
     "./icons": {
+      "types": "./dist/types/icons/index.d.ts",
       "import": "./dist/icons/index.esm.js",
       "require": "./dist/icons/index.js"
-    },
-    "./types": {
-      "import": "./dist/types/components/index.d.ts",
-      "require": "./dist/types/icons/index.d.ts"
     },
     "./components/styles": "./dist/components/index.css"
   },

@@ -1,16 +1,16 @@
-'use client';
+import { type InstancePlugin, OverlayScrollbars } from "overlayscrollbars";
 
-import { type InstancePlugin, OverlayScrollbars } from 'overlayscrollbars';
-
-const fieldTags = ['input', 'textarea', 'select', 'datalist'];
+const fieldTags = ["input", "textarea", "select", "datalist"];
 const getField = (osInstance: OverlayScrollbars) => {
   const { target, content } = osInstance.elements();
-  const { childElementCount, firstElementChild } = target.contains(content) ? content : target;
+  const { childElementCount, firstElementChild } = target.contains(content)
+    ? content
+    : target;
 
   return (
     firstElementChild &&
     childElementCount === 1 &&
-    firstElementChild.getAttribute('data-overlayscrollbars-field') !== null &&
+    firstElementChild.getAttribute("data-overlayscrollbars-field") !== null &&
     fieldTags.includes(firstElementChild.tagName.toLowerCase()) &&
     (firstElementChild as HTMLElement)
   );
@@ -26,9 +26,10 @@ export const osFieldPlugin = {
       }
 
       const fieldSizingSupported =
-        (field.style as CSSStyleDeclaration & { fieldSizing?: string }).fieldSizing === 'content';
+        (field.style as CSSStyleDeclaration & { fieldSizing?: string })
+          .fieldSizing === "content";
 
-      const placeholderDiv = document.createElement('div');
+      const placeholderDiv = document.createElement("div");
       const updateField = () => {
         const { style, parentElement } = field;
 
@@ -39,8 +40,8 @@ export const osFieldPlugin = {
           parentElement.append(placeholderDiv);
         }
 
-        style.width = '0';
-        style.height = '0';
+        style.width = "0";
+        style.height = "0";
 
         const w = field.scrollWidth;
         const h = field.scrollHeight;
@@ -51,27 +52,27 @@ export const osFieldPlugin = {
         placeholderDiv.remove();
       };
 
-      placeholderDiv.setAttribute('data-overlayscrollbars-field', '');
+      placeholderDiv.setAttribute("data-overlayscrollbars-field", "");
 
-      event('initialized', () => {
+      event("initialized", () => {
         if (fieldSizingSupported) {
           return;
         }
-        field.addEventListener('input', updateField);
-        field.addEventListener('change', updateField);
+        field.addEventListener("input", updateField);
+        field.addEventListener("change", updateField);
         updateField();
       });
 
-      event('updated', () => {
+      event("updated", () => {
         if (fieldSizingSupported) {
           return;
         }
         updateField();
       });
 
-      event('destroyed', () => {
-        field.removeEventListener('input', updateField);
-        field.removeEventListener('change', updateField);
+      event("destroyed", () => {
+        field.removeEventListener("input", updateField);
+        field.removeEventListener("change", updateField);
         placeholderDiv.remove();
       });
     },

@@ -1,5 +1,3 @@
-"use client";
-
 import { ComponentPropsWithRef, useEffect, useRef } from "react";
 import clsx from "clsx";
 import { ClickScrollPlugin, OverlayScrollbars } from "overlayscrollbars";

@@ -1,21 +1,22 @@
-import { useState } from 'react';
-import { fn } from 'storybook/test';
+import { useState } from "react";
+import { fn } from "storybook/test";
 
-import { ArrowIosBackOutline } from '@/assets/icons';
-import * as Dialog from '@radix-ui/react-dialog';
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import { ArrowIosBackOutline } from "icons";
+import * as Dialog from "@radix-ui/react-dialog";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Modal, type Props } from './BaseModal';
-import { ModalHeaderWithClose } from './ModalHeaderWithClose';
-import { ModalHeaderWithNext } from './ModalHeaderWithNext';
+import { Modal, type Props } from "./BaseModal";
+import { ModalHeaderWithClose } from "./ModalHeaderWithClose";
+import { ModalHeaderWithNext } from "./ModalHeaderWithNext";
 
-import styles from './ModalHeader.module.scss';
+import styles from "./ModalHeader.module.scss";
+import { Button } from "../button/Button";
 
 const meta = {
-  title: 'ui/modal/Modal',
+  title: "UI/Modal",
   component: Modal,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
 } satisfies Meta<typeof Modal>;
 
@@ -29,8 +30,8 @@ export const Primary: Story = {
     children: (
       <div>
         <p>Modal content</p>
-        <button onClick={fn()}>cancel</button>
-        <button onClick={fn()}>save</button>
+        <Button onClick={fn()}>cancel</Button>
+        <Button onClick={fn()}>save</Button>
       </div>
     ),
   },
@@ -46,30 +47,40 @@ export const ConfirmModal: StoryObj<Props> = {
 
     return (
       <>
-        <button onClick={() => setOpen(true)}>Open modal</button>
+        <Button onClick={() => setOpen(true)}>Open modal</Button>
         <Modal
-          size='sm'
+          size="sm"
           onOpenChange={handleClose}
           open={open}
           header={
-            <ModalHeaderWithClose
-              title='Modal title'
-              onClose={handleClose}
-            />
+            <ModalHeaderWithClose title="Modal title" onClose={handleClose} />
           }
         >
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', padding: '24px' }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "16px",
+              padding: "24px",
+            }}
+          >
             <p>We have sent a link to confirm your email to epam@epam.com</p>
-            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '8px' }}>
-              <button onClick={handleClose}>Cancel</button>
-              <button
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "flex-end",
+                gap: "8px",
+              }}
+            >
+              <Button onClick={handleClose}>Cancel</Button>
+              <Button
                 onClick={() => {
-                  alert('Save');
+                  alert("Save");
                   setOpen(false);
                 }}
               >
                 Save
-              </button>
+              </Button>
             </div>
           </div>
         </Modal>
@@ -88,28 +99,35 @@ export const CropModal: StoryObj<Props> = {
     };
 
     const handleNext = () => {
-      alert('Next clicked');
+      alert("Next clicked");
     };
     const handleBack = () => {
-      alert('Back clicked');
+      alert("Back clicked");
     };
 
     return (
       <>
-        <button onClick={() => setOpen(true)}>Open modal</button>
+        <Button onClick={() => setOpen(true)}>Open modal</Button>
         <Modal
-          size='md'
+          size="md"
           onOpenChange={handleClose}
           open={open}
           header={
             <ModalHeaderWithNext
-              title='Cropping'
+              title="Cropping"
               onBack={handleBack}
               onNext={handleNext}
             />
           }
         >
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', padding: '24px' }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "16px",
+              padding: "24px",
+            }}
+          >
             <p>Crop content here</p>
           </div>
         </Modal>
@@ -129,27 +147,40 @@ export const FollowersModal: StoryObj<Props> = {
 
     return (
       <>
-        <button onClick={() => setOpen(true)}>Open modal</button>
+        <Button onClick={() => setOpen(true)}>Open modal</Button>
         <Modal
-          size='lg'
+          size="lg"
           onOpenChange={handleClose}
           open={open}
           header={
             <ModalHeaderWithClose
-              title='2 258 Following'
+              title="2 258 Following"
               onClose={handleClose}
             />
           }
         >
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', padding: '24px' }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "10px",
+              padding: "24px",
+            }}
+          >
             <p>List of followers</p>
             {[...Array(20).fill(null)].map((_, index) => (
               <div key={index}>
                 <p>user {index}</p>
               </div>
             ))}
-            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '8px' }}>
-              <button onClick={handleClose}>Close</button>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "flex-end",
+                gap: "8px",
+              }}
+            >
+              <Button onClick={handleClose}>Close</Button>
             </div>
           </div>
         </Modal>
@@ -169,48 +200,61 @@ export const FiltersModal: StoryObj<Props> = {
       <>
         <button onClick={() => setOpen(true)}>Open modal</button>
         <Modal
-          size='xl'
+          size="xl"
           onOpenChange={handleClose}
           open={open}
           header={
             <>
-              <button
+              <Button
                 className={styles.iconButton}
                 onClick={() => {
-                  alert('Back');
+                  alert("Back");
                 }}
-                type='button'
-                aria-label='Back'
+                type="button"
+                aria-label="Back"
               >
                 <ArrowIosBackOutline />
-              </button>
+              </Button>
               <Dialog.Title asChild>
-                <h2 className={styles.title}>{'Filters'}</h2>
+                <h2 className={styles.title}>{"Filters"}</h2>
               </Dialog.Title>
               <Dialog.Close asChild>
-                <button
+                <Button
                   onClick={() => {
-                    alert('Next');
+                    alert("Next");
                   }}
                 >
                   Next
-                </button>
+                </Button>
               </Dialog.Close>
             </>
           }
         >
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', padding: '24px' }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "16px",
+              padding: "24px",
+            }}
+          >
             <p>We have sent a link to confirm your email to epam@epam.com</p>
-            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '8px' }}>
-              <button onClick={handleClose}>Cancel</button>
-              <button
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "flex-end",
+                gap: "8px",
+              }}
+            >
+              <Button onClick={handleClose}>Cancel</Button>
+              <Button
                 onClick={() => {
-                  alert('Save');
+                  alert("Save");
                   setOpen(false);
                 }}
               >
                 Save
-              </button>
+              </Button>
             </div>
           </div>
         </Modal>

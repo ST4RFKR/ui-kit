@@ -1,11 +1,8 @@
-"use client";
-
 import { ComponentPropsWithRef, useState } from "react";
 import clsx from "clsx";
 
 import s from "./Input.module.scss";
-import { Search } from "./Input.stories";
-import { EyeOutline, EyeOffOutline } from "icons";
+import { EyeOutline, EyeOffOutline, SearchOutline } from "icons";
 
 type Props = {
   type?: "text" | "password" | "search" | "email";
@@ -48,7 +45,7 @@ export const Input = (p: Props) => {
         {label && <span className={s.label}>{label}</span>}
         <div className={s.inputContainer}>
           {isSearch && (
-            <Search
+            <SearchOutline
               className={clsx(s.leftIcon, { [s.leftIconColorWhite]: error })}
               aria-hidden="true"
             />

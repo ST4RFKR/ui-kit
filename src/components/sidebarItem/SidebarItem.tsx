@@ -1,16 +1,22 @@
-import { PolymorphicButton } from "components/polymorphic-button";
+import { PolymorphicButton } from "../polymorphic-button/PolymorphicButton";
 import s from "./SidebarItem.module.scss";
 export function SidebarItem({
   as,
   label,
   href,
   pathname,
-  Component,
+  component,
   isMobile,
-  createPostHandler,
-  show,
-  t,
-}: any) {
+  buttonHandler,
+}: {
+  as?: React.ElementType;
+  label: string;
+  href: string;
+  pathname: string;
+  component: React.ReactNode;
+  isMobile: boolean;
+  buttonHandler?: () => void;
+}) {
   return (
     <PolymorphicButton
       as={as}
@@ -19,16 +25,9 @@ export function SidebarItem({
       isActive={pathname === href}
       variant="text"
       className={s.item}
-      onClick={() => {
-        if (label === t("create")) {
-          createPostHandler();
-        }
-        if (label === t("logOut")) {
-          show();
-        }
-      }}
+      onClick={buttonHandler}
     >
-      <Component /> {isMobile ? "" : label}
+      {component} {isMobile ? "" : label}
     </PolymorphicButton>
   );
 }

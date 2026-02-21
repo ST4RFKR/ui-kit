@@ -1,18 +1,18 @@
-import { ComponentProps, forwardRef } from 'react';
-import { clsx } from 'clsx';
+import { ComponentProps, forwardRef } from "react";
 
-type CardProps = ComponentProps<'div'>;
+import s from "./Card.module.scss";
+import { clsx } from "clsx";
 
-export const Card = forwardRef<HTMLDivElement, CardProps>(({ children, className, ...props }, ref) => {
-  return (
-    <div
-      ref={ref}
-      className={clsx('border-dark-300 bg-dark-500 rounded-xs border', className)}
-      {...props}
-    >
-      {children}
-    </div>
-  );
-});
+type CardProps = ComponentProps<"div">;
 
-Card.displayName = 'Card';
+export const Card = forwardRef<HTMLDivElement, CardProps>(
+  ({ children, className, ...props }, ref) => {
+    return (
+      <div ref={ref} className={clsx(s.card, className)} {...props}>
+        {children}
+      </div>
+    );
+  },
+);
+
+Card.displayName = "Card";
